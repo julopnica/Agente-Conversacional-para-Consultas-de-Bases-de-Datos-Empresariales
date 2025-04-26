@@ -1,6 +1,6 @@
 # Agente-Conversacional-para-Consultas-de-Bases-de-Datos-Empresariales
 <p align="center">
-  <img src="Portada_Hackaton_2025.jpg" alt="Pantalla Principal" width="700"/>
+  <img src="Portada_Hackaton_2025.jpg" alt="Pantalla Principal" width="400"/>
   <br>agentes conversacional de inteligencia artificial que permite realizar consultas en lenguaje natural sobre múltiples bases de datos: SQL Server, MySQL y MongoDB usando Node.js 
 </p>
 
@@ -79,12 +79,10 @@ Dependencias principales instaladas:
 ## 🖼️ Imágenes de Ejemplo
 
 
-*Captura de pantalla de la interfaz principal.*
-![banner-hackathon](Portada_Hackaton_2025.jpg)
+| Pantalla Principal | Funcionalidad de Búsqueda | Resultados Generados | Reporte Exportado |
+|:------------------:|:-------------------------:|:--------------------:|:-----------------:|
+| ![Pantalla Principal](Portada_Hackaton_2025.jpg) | ![Funcionalidad de Búsqueda](Portada_Hackaton_2025.jpg) | ![Resultados Generados](Portada_Hackaton_2025.jpg) | ![Reporte Exportado](Portada_Hackaton_2025.jpg) |
 
-*Ejemplo del resultado de una operación.*
-
-![banner-hackathon](Portada_Hackaton_2025.jpg)
 
 ## 🎥 Video de Presentación
 
