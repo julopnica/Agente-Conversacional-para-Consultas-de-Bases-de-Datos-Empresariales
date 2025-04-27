@@ -85,7 +85,7 @@ Dependencias principales instaladas:
 
 | Pantalla Principal | Funcionalidad de Búsqueda | Resultados Generados | Reporte Exportado |
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
-| ![Pantalla Principal](Portada_Hackaton_2025.jpg) | ![Funcionalidad de Búsqueda](Portada_Hackaton_2025.jpg) | ![Resultados Generados](Portada_Hackaton_2025.jpg) | ![Reporte Exportado](Portada_Hackaton_2025.jpg) |
+| ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](DataWH_openai.gif) | ![Resultados Generados](reporte_pdf_gemini.gif) | ![Reporte Exportado](grafico_de_barra_gemini.gif) |
 
 
 ## 🎥 Video de Presentación
