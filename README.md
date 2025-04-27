@@ -9,7 +9,7 @@
 Este agente conversacional de inteligencia artificial que permite realizar consultas en lenguaje natural sobre múltiples bases de datos empresariales (SQL Server, MySQL y MongoDB), y esta desarrollado en Node.js.
 ## 🚀 Flujo de Proeycto
 <p align="center">
-  <img src="Portada_Hackaton_2025.jpg" alt="Pantalla Principal" width="400"/>
+  <img src="Flujo_Proyecto.png" alt="Pantalla Principal" width="400"/>
   <br>diagrama de flujo del proeyecto 
 </p>
 ## 🚀 Características Principales
