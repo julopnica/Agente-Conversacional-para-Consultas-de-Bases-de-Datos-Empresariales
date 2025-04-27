@@ -7,7 +7,11 @@
 # 📊 Agente Conversacional para Consultas en Bases de Datos
 
 Este agente conversacional de inteligencia artificial que permite realizar consultas en lenguaje natural sobre múltiples bases de datos empresariales (SQL Server, MySQL y MongoDB), y esta desarrollado en Node.js.
-
+## 🚀 Flujo de Proeycto
+<p align="center">
+  <img src="Portada_Hackaton_2025.jpg" alt="Pantalla Principal" width="400"/>
+  <br>diagrama de flujo del proeyecto 
+</p>
 ## 🚀 Características Principales
 
 - Consulta de bases de datos usando lenguaje natural (escrito o hablado).
