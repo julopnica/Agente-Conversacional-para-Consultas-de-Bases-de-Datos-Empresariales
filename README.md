@@ -85,7 +85,7 @@ Dependencias principales instaladas:
 
 | Pantalla Principal | Funcionalidad de Búsqueda | Resultados Generados | Reporte Exportado |
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
-| ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](DataWH_openai.gif?raw=true) | ![Resultados Generados](reporte_pdf_gemini.gif?raw=true) | ![Reporte Exportado](grafico_de_barra_gemini.gif?raw=true) |
+| ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](compara_informe_gemini.gif?raw=true) | ![Resultados Generados](reporte_pdf_gemini.gif?raw=true) | ![Reporte Exportado](grafico_de_barra_gemini.gif?raw=true) |
 
 
 ## 🎥 Video de Presentación
