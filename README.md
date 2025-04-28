@@ -86,8 +86,14 @@ Dependencias principales instaladas:
 | Pantalla Principal | Funcionalidad de Búsqueda | Resultados Generados | Reporte Exportado |
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
 | ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](compara_informe_gemini.gif?raw=true) | ![Resultados Generados](Enfermedades_openai.gif?raw=true) | ![Reporte Exportado](compara_informe_gemini.gif?raw=true) |
-
-
+<p align="center">
+  <img src="compara_informe_gemini.gif?raw=true" alt="Pantalla Principal" width="400"/>
+  <br>diagrama de flujo del proeyecto 
+</p>
+<p align="center">
+  <img src="Enfermedades_openai.gif?raw=true" alt="Pantalla Principal" width="400"/>
+  <br>diagrama de flujo del proeyecto 
+</p>
 ## 🎥 Video de Presentación
 
 
