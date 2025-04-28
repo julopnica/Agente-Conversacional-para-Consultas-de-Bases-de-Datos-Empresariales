@@ -83,7 +83,7 @@ Dependencias principales instaladas:
 ## 🖼️ Imágenes de Ejemplo
 
 
-| Pantalla Principal | Funcionalidad de Búsqueda | Resultados Generados | Reporte Exportado |
+| Pantalla Principal | Informe del Agente | Genera Graficos | Análisis de datos |
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
 | ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](informe.png) | ![Resultados Generados](grafico.png) | ![Reporte Exportado](analisis.png) |
 
