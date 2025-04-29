@@ -1,44 +1,44 @@
-# Agente-Conversacional-para-Consultas-de-Bases-de-Datos-Empresariales
+# Conversational Agent for Enterprise Database Queries
 <p align="center">
   <img src="/public/img/Portada_Hackaton_2025.jpg" width="400"/>
-  <br>agentes conversacional de inteligencia artificial que permite realizar consultas en lenguaje natural sobre múltiples bases de datos: SQL Server, MySQL y MongoDB usando Node.js 
+  <br>Conversational artificial intelligence agents that allow you to perform natural language queries on multiple databases: SQL Server, MySQL, and MongoDB using Node.js
 </p>
 
-# 📊 Agente Conversacional para Consultas en Bases de Datos
+# 📊 Conversational Agent for Database Queries
 
-Este agente conversacional de inteligencia artificial que permite realizar consultas en lenguaje natural sobre múltiples bases de datos empresariales (SQL Server, MySQL y MongoDB), y esta desarrollado en Node.js.
-## 🚀 Flujo de Proeycto
+This conversational artificial intelligence agent allows you to perform natural language queries on multiple enterprise databases (SQL Server, MySQL, and MongoDB) and is developed in Node.js.
+## 🚀 Project Flow
 <p align="center">
   <img src="/public/img/Flujo_Proyecto.png" alt="Pantalla Principal" width="400"/>
-  <br>diagrama de flujo del proeyecto 
+  <br>project flowchart 
 </p>
-## 🚀 Características Principales
+## 🚀 Main Features
 
-- Consulta de bases de datos usando lenguaje natural (escrito o hablado).
-- Generación automática de consultas SQL y adaptación para MongoDB.
-- Visualización de resultados en gráficos dinámicos.
-- Exportación de reportes en PDF.
-- Soporte multimodal: texto, voz, gráficos y documentos.
-- Compatibilidad con múltiples LLMs: OpenAI y Gemini.
+- Database queries using natural language (written or spoken).
+- Automatic SQL query generation and adaptation for MongoDB.
+- Visualization of results in dynamic graphs.
+- Export of PDF reports.
+- Multimodal support: text, voice, graphics, and documents.
+- Compatibility with multiple LLMs: OpenAI and Gemini.
 
-## 🛠️ Instalación
+## 🛠️ Install
 
-Pasos detallados para instalar las dependencias y configurar el entorno:
+Detailed steps to install dependencies and configure the environment:
 
-1. Clonar el repositorio:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/julopnica/Agente-Conversacional-para-Consultas-de-Bases-de-Datos-Empresariales.git
    cd tu_repositorio
    ```
 
-2. Instalar las dependencias usando npm:
+2. Install dependencies using npm:
 
    ```bash
    npm install
    ```
 
-Dependencias principales instaladas:
+Main dependencies installed:
 
 ```bash
 ├── @google/generative-ai@0.21.0
@@ -63,35 +63,35 @@ Dependencias principales instaladas:
 └── webpack@5.97.1
 ```
 
-## 🧹 Uso
+## 🧹 Use
 
-1. Levanta el servidor con:
+1. Raise the server with:
    ```bash
    npm node server.js
    ```
-2. Accede a la interfaz web.
-3. Haga clic en la parte superior derecha de la pagina [Configuracion], seleciona el gestor de base de datos.
-4. Selecciona la base de datos de tu preferencias.
-5. Si escribe la consulta en lenguaje natual, haga clic en el icono de tuerca.
-6. si quiere dictar o hablar tu consulta, clic en el icono de microfono.
-7. Para generar PDF pronunciar la palabra pdf (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?  pdf"*).
-8. Para generar el Grifico pronunciar la palabra grafico de barra (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?  grafico de barra"*).
-9. Para generar PDF, escribe  (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?, pdf"*).
-10. El agente procesará la consulta, generará el gráfico y permitirá exportarlo en PDF.
-11. tambien puede canbiar de Modelo, al dar clic en menu superior [OpemAi],[Gemini].
-12. Repite los pasos desde el 3.
+2. Access the web interface.
+3. Click [configuration] in the top right corner of the page, select the database manager.
+4. Select the database you prefer.
+5. If you are typing your query in natural language, click the gear icon.
+6. If you want to dictate or speak your query, click the microphone icon.
+7. To generate a PDF, say the word pdf (for example: *"What were the best-selling products this month? pdf"*).
+8. To generate a graph, say the word bar chart (for example: *"What were the best-selling products this month? bar chart"*).
+9. To generate a PDF, type (for example: *"What were the best-selling products this month?, pdf"*).
+10. The agent will process the query, generate the graph, and allow you to export it to PDF.
+11. You can also change the model by clicking [OpemAi], [Gemini] in the top menu.
+12. Repeat steps 3 and above.
 
-## 🖼️ Imágenes de Ejemplo
+## 🖼️ Example Images
 
 
-| Pantalla Principal | Informe del Agente | Genera Graficos | Análisis de datos |
+| Main Screen | Agent Report | Generates Graphics | Data analysis |
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
-| ![Pantalla Principal](/public/img/Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](/public/img/informe.png) | ![Resultados Generados](/public/img/grafico.png) | ![Reporte Exportado](/public/img/analisis.png) |
-## 🖼️ Video de Presenatcion
+| ![Main Screen](/public/img/Pantalla_Principal.png) | ![Agent Report](/public/img/informe.png) | ![ Generates Graphics](/public/img/grafico.png) | ![Data analysis](/public/img/analisis.png) |
+## 🖼️ Presentation Video
 [](https://www.youtube.com/watch?v=Jy_EqMabO_A)
 [![Alt text](https://img.youtube.com/vi/Jy_EqMabO_A/0.jpg)](https://www.youtube.com/watch?v=Jy_EqMabO_A)
 
-## 🎜️ Demo (Opcional)
+## 🎜️ Demo (Optional)
 
 [](https://www.youtube.com/watch?v=Jy_EqMabO_A)
 [![Alt text](https://img.youtube.com/vi/Jy_EqMabO_A/0.jpg)](https://www.youtube.com/watch?v=Jy_EqMabO_A)
