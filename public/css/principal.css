@@ -1,0 +1,272 @@
+/* Estilos Generales - Adaptados */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    padding-top: 20px; /* Reducir padding superior en móviles */
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0; /* Eliminar margen por defecto del body */
+    box-sizing: border-box; /* Incluir padding y border en el tamaño del elemento */
+}
+
+.container {
+    width: 95%; /* Usar porcentaje para ancho */
+    max-width: 1000px;
+    margin-top: 15px; /* Reducir margen superior en móviles */
+    padding: 15px; /* Reducir padding en móviles */
+    background-color: #262626; /* Darker container background */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+    margin-bottom: 20px; /* Reducir margen inferior en móviles */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño del elemento */
+}
+
+.logo {
+    font-size: 1.8rem; /* Ajustar tamaño de fuente para móviles */
+    font-weight: bold;
+    color: #66b3ff; /* Light blue logo */
+    margin-bottom: 8px; /* Reducir margen inferior */
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Ajustar sombra */
+}
+
+.search-container {
+    margin-top: 15px; /* Reducir margen superior */
+    display: flex;
+    flex-direction: column; /* Apilar elementos en móviles */
+    align-items: center; /* Centrar elementos apilados */
+    background-color: #333;
+    padding: 10px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño del elemento */
+}
+
+/* Contenedor izquierdo: textarea y vista previa */
+.left-content {
+    flex: none; /* Deshabilitar flex-grow en móviles para evitar que ocupe todo el espacio */
+    width: 100%; /* Usar ancho completo */
+    display: flex;
+    flex-direction: column;
+}
+
+.search-box {
+    width: 100%; /* Usar ancho completo */
+    min-height: 40px;
+    max-height: 150px; /* Ajustar altura máxima para móviles */
+    background-color: #333;
+    color: #c1c0c0;
+    border: none;
+    outline: none;
+    font-size: 16px; /* Ajustar tamaño de fuente */
+    text-align: left;
+    resize: none;
+    overflow-y: auto;
+    padding: 8px; /* Reducir padding */
+    box-sizing: border-box; /* Incluir padding y border en el tamaño del elemento */
+}
+
+/* Botones a la derecha */
+.search-icons {
+    display: flex;
+    flex-direction: row; /* Mostrar iconos en fila en móviles */
+    gap: 15px; /* Aumentar espacio entre iconos */
+    font-size: 22px; /* Ajustar tamaño de icono */
+    color: #666;
+    cursor: pointer;
+    margin-left: 0; /* Eliminar margen izquierdo en móviles */
+    margin-top: 15px; /* Añadir margen superior para separar de textarea */
+}
+
+.search-icons i:hover {
+    color: #c1c0c0;
+}
+
+/* Ajuste para el menú superior y elementos posicionados */
+.top-menu {
+    position: static; /* Cambiar a posicionamiento estático en móviles */
+    top: auto;
+    right: auto;
+    display: flex;
+    flex-direction: column; /* Apilar elementos del menú */
+    align-items: center;
+    gap: 10px; /* Reducir espacio entre elementos */
+    margin-bottom: 15px; /* Añadir margen inferior para separar del contenido principal */
+}
+
+.top-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.user-icon {
+    width: 50px; /* Ajustar tamaño del icono de usuario */
+    height: 50px; /* Ajustar tamaño del icono de usuario */
+    border-radius: 20%;
+    cursor: pointer;
+    margin-bottom: 10px; /* Añadir margen inferior */
+}
+
+
+
+
+.response {
+    margin-top: 15px; /* Reducir margen superior */
+    width: 100%;
+    text-align: left;
+    background-color: #262626;
+    transition: background-color 0.3s;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño del elemento */
+    padding: 10px; /* Añadir padding interno para el contenido de la respuesta */
+}
+
+.response h5 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.1rem; /* Ajustar tamaño de fuente */
+}
+
+.response pre {
+    background-color: #444; /* Darker pre background */
+    color: #ddd; /* Light pre text */
+    padding: 8px; /* Reducir padding */
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap; /* Permitir que el texto se ajuste */
+    word-wrap: break-word; /* Romper palabras largas */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.response table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px; /* Reducir margen inferior */
+    display: block; /* Permitir scroll horizontal si la tabla es muy ancha */
+    overflow-x: auto; /* Añadir scroll horizontal si es necesario */
+}
+
+.response th,
+.response td {
+    padding: 8px 10px; /* Reducir padding en celdas de tabla */
+    border: 1px solid #555; /* Darker table border */
+    text-align: left;
+    font-size: 0.9rem; /* Ajustar tamaño de fuente en tabla */
+}
+
+.response thead {
+    background-color: #333; /* Darker table header background */
+    color: #fff; /* Light table header text */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.response tbody tr:nth-child(even) {
+    background-color: #3a3a3a; /* Slightly lighter even row background */
+    transition: background-color 0.3s;
+}
+
+.response img {
+    max-width: 100%;
+    height: auto; /* Asegurar que la altura se ajuste proporcionalmente */
+    display: block;
+    margin: 10px auto; /* Ajustar margen para centrar imágenes */
+}
+
+
+/* Media Query para pantallas más grandes (opcional pero recomendado) */
+@media (min-width: 768px) {
+    body {
+        padding-top: 40px;
+    }
+
+    .container {
+        margin-top: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+    }
+
+    .logo {
+        font-size: 2.0rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-container {
+        margin-top: 20px;
+        flex-direction: row; /* Volver a disposición en fila en pantallas grandes */
+        align-items: flex-start;
+    }
+
+    .left-content {
+        flex: 1; /* Permitir que ocupe el espacio restante */
+        width: auto; /* Ancho automático */
+    }
+
+    .search-box {
+        max-height: 200px;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .search-icons {
+        flex-direction: column; /* Volver a apilar iconos en pantallas grandes */
+        gap: 10px;
+        font-size: 25px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+
+    .top-menu {
+        position: absolute; /* Volver a posicionamiento absoluto en pantallas grandes */
+        top: 10px;
+        right: 20px;
+        flex-direction: row; /* Volver a disposición en fila */
+        gap: 15px;
+        margin-bottom: 0;
+    }
+
+    .user-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+ 
+
+    .response {
+        margin-top: 20px;
+        padding: 0; /* Eliminar padding interno en pantallas grandes si no es necesario */
+    }
+
+    .response h5 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .response pre {
+        padding: 10px;
+    }
+
+    .response table {
+        margin-bottom: 20px;
+        display: table; /* Volver a mostrar como tabla */
+        overflow-x: visible; /* Deshabilitar scroll horizontal */
+    }
+
+    .response th,
+    .response td {
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+    .response img {
+        margin: auto;
+    }
+}

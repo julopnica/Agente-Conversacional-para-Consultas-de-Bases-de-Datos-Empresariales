@@ -1,0 +1,84 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.table {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+}
+
+.table caption {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 8px 0px;
+}
+
+.table tr {
+    background-color: #201e1e;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    font-size: 15px;
+    padding: 8px;
+    text-align: center;
+}
+
+.table thead th{ 
+    text-transform: uppercase;
+    background-color: #201e1e;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.table tbody td:hover {
+    background-color: rgba(133, 129, 129, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+ 
+    .table {
+        border: 0px;
+    }
+    .table caption {
+        font-size: 22px;
+    }
+    .table thead {
+        display: none;
+    }
+    .table tr {
+        margin-bottom: 8px;
+        display: block;
+    }
+    .table th, .table td {
+        font-size: 12px;
+        text-align: right;
+    }
+    .table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+       
+    }
+    .table  td:last-child {
+        border-bottom: 0px;
+    }
+    .table td::before{
+        content: attr(data-informe);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: right;/*para mostrar a la izquierda el titulo*/
+    }
+}

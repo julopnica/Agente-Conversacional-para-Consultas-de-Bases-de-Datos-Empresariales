@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Natural a SQL</title>
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+<link
+  href="css/styletable.css"
+  rel="stylesheet"
+/>
+<!--principal -->
+<link
+  href="css/principal.css"
+  rel="stylesheet"
+/>
+<!-- cargador -->
+<link
+  href="css/carga.css"
+  rel="stylesheet"
+/>
+ <!--Modal -->
+ <link
+ href="css/modal.css"
+ rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+
+</head>
+
+<body>
+  <!-- Modal -->
+  <div id="configModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Database Configuration</h2>
+      <div>
+        <h3>Gestores de BD</h3>
+        <label for="dbManagersSelect">Selecciona un gestor:</label>
+        <select id="dbManagersSelect">
+          <option value="">-- Selecciona un gestor --</option>
+          <option value="sqlserver">SQL Server</option>
+          <option value="mysql">MySQL</option>
+          <option value="nosql">NoSQL</option>
+        </select>
+      </div>
+      <div>
+        <h3>Databases</h3>
+        <label for="databasesSelect">Selecciona una base de datos:</label>
+        <select id="databasesSelect" disabled>
+          <option value="">Selecciona un gestor para ver las bases de datos</option>
+        </select>
+      </div>
+    </div>
+  </div>
+    <!-- fin del modal -->    
+    <div class="top-menu">
+        <a href="https://softlopezaplicaciones.web.app" id="inicio" href="#">Home</a>
+        <a id="configBtn" href="#">Configuration</a>
+        <a id="modeloIA" href="#">OpenAI</a>
+        <img  src="img/julopnica.jpg" alt="Usuario"  class="user-icon">
+    </div>
+    <div class="container">
+      <a href="https://softlopezaplicaciones.web.app" class=""> <img src="img/logsite.jpg" id="imguser"  class="circulo" alt="softlopez"></a>
+        <div class="logo">DATANIS: Data analysis with natural language </div>
+        <p>This service will generate: Data analysis, graphics, PDFs, and SQL and NOSQL queries with natural language instructions.</p>
+        <span id="dbactiva"></span>
+        <div class="search-container">
+            <!-- Contenido izquierdo: textarea y vista previa -->
+            <div class="left-content">
+              <textarea class="search-box" id="queryInput" placeholder="Write your query in natural language"></textarea>
+              
+            </div>
+            <!-- Botones a la derecha -->
+            <div class="search-icons">
+              <i onclick="main()" class="fa-solid fa-gears"></i>
+              <i onclick=" startVoiceRecognition()"class="fa-solid fa-microphone" id="micro"></i>
+            </div>
+          </div>
+        
+        <div id="response" class="response">
+          
+        </div>
+
+        <div id="load" class="progress-container">
+            <div class="progress">
+                <div class="text-container">
+                    <span class="progress-text">
+                        <B>SOFTLOPEZ</B>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ 
+</body>
+<script>
+  // Este archivo contiene la lógica para manejar la configuración de la base de datos y el gestor de bases de datos en el modal.
+ 
+  const configBtn = document.getElementById("configBtn");
+  const modeloIA = document.getElementById('modeloIA');
+  const modal = document.getElementById("configModal");
+  const closeBtn = document.querySelector(".close-button");
+  const dbManagersSelect = document.getElementById("dbManagersSelect");
+  const databasesSelect = document.getElementById("databasesSelect");
+  const dbactiva = document.getElementById("dbactiva");
+  let selectedDB;
+  dbactiva.style.display = "none";
+    // Peticiones que se envian al servidor para la consulta de datos
+const body = document.body;
+let question = null;
+let currentLanguage = 'es';
+let sqlnutural = null; // enviar consulta al servidor
+const container = document.querySelector('.container');
+const responseDiv = document.getElementById("response");
+const queryInput = document.getElementById('queryInput');
+
+
+responseDiv.innerHTML = "";
+// Reiniciar los selectores de gestores y bases de datos
+function reiniciardbMangers() {
+  dbManagersSelect.selectedIndex = 0;
+  databasesSelect.selectedIndex = 0;
+
+}
+
+  modeloIA.addEventListener('click', () => {
+   
+                // Obtiene el texto actual del enlace
+                const currentModelText = modeloIA.textContent;
+                
+                let newModelText;
+                let modelToSend; // Variable para el nombre del modelo a enviar (caso correcto)
+                // Determina el nuevo texto y el nombre del modelo a enviar
+                if (currentModelText === 'GEMINI') {
+                    newModelText = 'OpenAI';
+                    modelToSend = 'OpenAI'; // Nombre canonical para enviar al servidor
+                  
+                   
+                } else if (currentModelText === 'OpenAI') {
+                    newModelText = 'GEMINI';
+                    modelToSend = 'Gemini'; // Nombre canonical para enviar al servidor
+                   
+                }
+    
+                // Actualiza el texto visible en el enlace
+                modeloIA.textContent = newModelText;
+                // Llama a la función para enviar el modelo al servidor
+               
+                sendModelToServer(modelToSend);
+  });
+
+  // Abrir el modal
+  configBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  // Cerrar el modal al hacer clic en la "x"
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Cerrar el modal al hacer clic fuera del contenido
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // Cuando se selecciona un gestor, se carga la lista de bases de datos
+  dbManagersSelect.addEventListener("change", async (event) => {
+    const dbType = event.target.value;
+    databasesSelect.innerHTML = "";
+    if (!dbType) {
+      databasesSelect.innerHTML = '<option value="">Selecciona un gestor para ver las bases de datos</option>';
+      databasesSelect.disabled = true;
+      return;
+    }
+    databasesSelect.disabled = false;
+    databasesSelect.innerHTML = '<option value="">Cargando...</option>';
+    try {
+      const response = await fetch(`http://localhost:3000/api/listDatabases/${dbType}`);
+      const data = await response.json();
+      if (Array.isArray(data) && data.length > 0) {
+        databasesSelect.innerHTML = '<option value="">-- Selecciona una base de datos --</option>';
+        data.forEach(db => {
+          databasesSelect.innerHTML += `<option value="${db.databaseName}">${db.databaseName}</option>`;
+        });
+      } else {
+        databasesSelect.innerHTML = `<option value="">No se encontraron bases de datos para ${dbType}</option>`;
+      }
+    } catch (error) {
+      databasesSelect.innerHTML = `<option value="">Error al cargar bases de datos para ${dbType}</option>`;
+      console.error(error);
+    }
+  });
+
+  // Al seleccionar una base de datos, se envía la selección al servidor
+  databasesSelect.addEventListener("change", async (event) => {
+     selectedDB = event.target.value;
+    //alert("Seleccionaste la base de datos: " + selectedDB);
+    const dbType = dbManagersSelect.value;
+   // alert("Seleccionaste la base de datos: " + dbType);
+    if (!selectedDB) return;
+    try {
+      const response = await fetch("http://localhost:3000/api/selectDatabase", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ dbType, databaseName: selectedDB })
+      });
+      const result = await response.json();
+     // alert("Database selected: " + result.message);
+     Swal.fire({
+      position: "top",
+      icon: "success",
+      text: "Database selected:",
+      text: "Database:"+selectedDB,
+      showConfirmButton: false,
+      timer: 1500
+    });
+        modal.style.display = "none";
+        // Actualiza el texto visible en el enlace
+        dbactiva.style.display = "block";
+        responseDiv.innerHTML = "";
+        queryInput.value = "";
+  
+     
+       dbactiva.textContent ="Base de Datos:"+ selectedDB;
+    } catch (error) {
+      console.error("Error al enviar la base de datos seleccionada:", error);
+      alert("Error al enviar la base de datos seleccionada.");
+    }
+  });
+
+  // Función para enviar el nombre del modelo al servidor Node.js
+function sendModelToServer(modelName) {
+  // Define la URL de tu endpoint en el servidor Node.js
+  const serverEndpoint = 'http://localhost:3000/cambiar-modelo'; // Ajusta el puerto si es diferente
+
+  // Usa la API fetch para hacer una solicitud POST
+  fetch(serverEndpoint, {
+      method: 'POST', // Usamos POST para enviar datos
+      headers: {
+          'Content-Type': 'application/json' // Indicamos que enviamos JSON
+      },
+      body: JSON.stringify({ // Convertimos nuestro objeto JavaScript a una cadena JSON
+          modelo: modelName // El nombre de la clave 'modelo' debe coincidir con lo que esperas en el servidor
+      })
+  })
+  .then(response => {
+      // Verifica si la respuesta fue exitosa (código 2xx)
+      if (!response.ok) {
+          throw new Error(`Error del servidor: ${response.status}`);
+      }
+      // Parsea la respuesta JSON del servidor (si el servidor envía JSON)
+      return response.json();
+  })
+  .then(data => {
+     
+      if (data.status === 'success') {
+        swal.fire({
+          position: "top",
+          icon: "success",
+          title: "Modelo cambiado a " + data.modelo,
+          showConfirmButton: false,
+          timer: 1500
+      });
+      //reiniciar las bases de datos y gestores
+      reiniciardbMangers();
+     
+      dbactiva.style.display = "none";
+      } else {
+       swal.fire({
+          position: "top",
+          icon: "error",
+          title: "Error al cambiar el modelo",
+          showConfirmButton: false,
+          timer: 1500 
+        });
+
+      }
+  })
+  .catch(error => {
+      // Maneja errores de red o errores reportados por el servidor
+      console.error('Error al enviar el modelo al servidor:', error);
+      alert('Hubo un error al cambiar el modelo.'); // Informa al usuario
+  });
+}
+
+// Ajustar la altura del textarea automáticamente
+queryInput.addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+  });
+//Muetras el progreso de la consulta
+const loadText =  document.querySelector(".progress-text");
+const load = document.getElementById('load');
+const micro = document.getElementById('micro');
+load.style.display = 'none'; 
+//nicia el reconocimiento de voz
+async function startVoiceRecognition() {
+
+
+ const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+ recognition.lang = currentLanguage === 'es' ? 'es-NI' : 'en-US';
+ recognition.start();
+micro.style.color = 'red';
+
+ recognition.onresult = function (event) {
+   
+    sqlnutural = document.getElementById('queryInput').value = event.results[0][0].transcript;
+    sqlnutural=sqlnutural.toLowerCase();
+    micro.style.color = '';
+    main();
+ };
+}
+//funcin princpal que envia la consulta al servidor
+async function main() {
+  // Obtén el elemento input de tipo file
+question = document.getElementById("queryInput").value;
+ 
+ if (!question) {
+      console.log("No hay consulta para enviar.");
+      responseDiv.textContent = "Por favor, escribe una consulta.";
+      return;
+      
+  }else if (!selectedDB) {
+      console.log("No hay base de datos seleccionada.");
+      responseDiv.textContent = "Por favor, selecciona una base de datos.";
+      return;
+    
+}else{
+  question = document.getElementById("queryInput").value;
+  }
+  // Usamos FormData para enviar tanto el archivo como la cadena de consulta
+ 
+
+
+
+ 
+  function speak(message, callback) {
+      const utterance = new SpeechSynthesisUtterance(message);
+      utterance.onend = function () {
+          // Cambiar la imagen del avatar de vuelta al estado inicial
+          const tabla = document.getElementById('response');
+
+          if (callback) callback();
+          // showFooter();
+      };
+      speechSynthesis.speak(utterance);
+
+      // Cambiar la imagen del avatar mientras se está hablando
+    //  const tabla = document.getElementById('response');
+
+      // hideFooter();
+  }
+
+
+ 
+  responseDiv.innerHTML = "";
+  load.style.display = 'flex';
+   // loadText.innerHTML = '0.00 s';
+
+    const startTime = performance.now();
+  try {
+      const response = await fetch("http://localhost:3000/consulta", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question }),
+      });
+
+      if (!response.ok) {
+          throw new Error("la solicitud no procesada...intete de nuevo");
+      }
+
+      
+      const contentType = response.headers.get("Content-Type");
+        load.style.display = 'none';
+        const endTime = performance.now();
+       const elapsedTime = (endTime - startTime) / 1000;
+       //loadText.innerHTML = `${elapsedTime.toFixed(2)} s`;
+      // Verifica si el servidor devuelve un archivo
+      if (contentType) {
+          let fileType = '';
+          let fileName = 'archivo_generado_' + question + '_' + new Date().toISOString();
+
+          if (contentType.includes("application/pdf")) {
+              fileType = '.pdf';
+          } 
+
+          if (fileType) {
+              const blob = await response.blob(); // Recibe el archivo como Blob
+              const url = window.URL.createObjectURL(blob);
+
+              // Descarga automática del archivo
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = fileName + fileType; // Nombre y extensión del archivo
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+             
+                                 
+              // Mensaje de confirmación
+              responseDiv.textContent = `Tiempo de Respuesta: (${elapsedTime.toFixed(2)} s), El archivo ${fileType.toUpperCase()} ha sido generado y descargado.`;
+              speak("El archivo sobre:" + question + " , ha sido generado")
+            // question.value = "";
+              return;
+          }
+      }
+
+      // Procesa la respuesta JSON para otros casos
+      const data = await response.json();
+     
+      
+      if (data.error) {
+          responseDiv.textContent = `Mensaje: ${data.error}`;
+      } else if (data.response) {
+          //speak(data.analysis);
+          responseDiv.innerHTML = `<pre>Tiempo de Respuesta: (${elapsedTime.toFixed(2)} s)</pre> <p>${data.response} &#x1F680;&#x1F600;</p>`;
+      }  else if (data.chart) {
+          responseDiv.innerHTML = `<h5>Chart (${data.chartType}):&#128229;&#x1F600;</h5> 
+  <img src="data:image/png;base64,${data.chart}" alt="Generated Chart">`;
+  }else if (data.nosql) {
+    // speak(data.analysis);
+    let tableHTML = `
+<h5>Analisis sobre los Resultados:&#x1F680;&#x1F600;</h5>
+<pre>${data.analysis}</pre>
+
+<h5>Consulta NOSQL Generada:&#x1F680;&#x1F600;</h5>
+<pre>${data.sql}</pre>
+<h5>Resultados:</h5>
+<table class="table table-dark table-sm">
+<thead class="table table-dark table-sm" >
+<tr>${Object.keys(data.nosql[0])
+                .map((key) => `<th scope='col'>${key}</th>`)
+                .join("")}</tr>
+</thead>
+<tbody>
+${data.nosql
+                .map(
+                    (row) =>
+                        `<tr>${Object.entries(row)
+                        .map(([key, value]) => `<td data-informe="${key}">${value}</td>`)
+                        .join("")}</tr>`
+                 )
+                .join("")}
+</tbody>
+</table>
+`;
+    responseDiv.innerHTML = tableHTML;
+    // speak("si necesitas algo mas sobre analisis, no dudes en hacer mas consultas");
+}else if (data.respuesta) {
+      // speak(data.analysis);
+      let tableHTML = `
+<h5>Analisis sobre los Resultados:&#x1F680;&#x1F600;</h5>
+<pre>${data.analysis}</pre>
+<h5>Consulta SQL Generada:&#x1F680;&#x1F600;</h5>
+<pre>${data.sql}</pre>
+<h5>Resultados:</h5>
+<table class="table table-dark table-sm">
+<thead class="table table-dark table-sm" >
+  <tr>${Object.keys(data.respuesta[0])
+                  .map((key) => `<th scope='col'>${key}</th>`)
+                  .join("")}</tr>
+</thead>
+<tbody>
+  ${data.respuesta
+                  .map(
+                      (row) =>
+                          `<tr>${Object.entries(row)
+                          .map(([key, value]) => `<td data-informe="${key}">${value}</td>`)
+                          .join("")}</tr>`
+                   )
+                  .join("")}
+</tbody>
+</table>
+`;
+      responseDiv.innerHTML = tableHTML;
+      // speak("si necesitas algo mas sobre analisis, no dudes en hacer mas consultas");
+  }
+  } catch (error) {
+      load.style.display = "none";
+      responseDiv.textContent = `Error: No hay datos para la consulta`;
+
+  }
+}
+
+
+
+
+
+</script>
+
+</html>

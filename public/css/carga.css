@@ -1,0 +1,80 @@
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress {
+    --r1: 154%;
+    --r2: 68.5%;
+    width: 67.2px;
+    height: 67.2px;
+    border-radius: 50%;
+    background: radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #474bff 80%) center left,
+        radial-gradient(var(--r1) var(--r2) at bottom, #474bff 79.5%, #0000 80%) center center,
+        radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #474bff 80%) center right,
+        #dbdcef;
+    background-size: 50.5% 220%;
+    background-position: -100% 0%, 0% 0%, 100% 0%;
+    background-repeat: no-repeat;
+    animation: progress-mbj53w 2s infinite linear;
+    position: relative;
+    /* Required for absolute positioning of text */
+    display: flex;
+    /* Required for centering */
+    align-items: center;
+    /* Required for centering */
+    justify-content: center;
+    /* Required for centering */
+}
+
+.text-container {
+    position: absolute;
+    /* Position the text over the progress */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Center precisely */
+    text-align: center;
+    width: 100%;
+}
+
+.progress-text {
+    font-size: .6em;
+    /* Size of the text */
+    color: #042a63;
+    /* Initial color of the text */
+    background-color: #474bff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+
+}
+
+
+@keyframes progress-mbj53w {
+    33% {
+        background-position: 0% 33%, 100% 33%, 200% 33%;
+    }
+
+    66% {
+        background-position: -100% 66%, 0% 66%, 100% 66%;
+    }
+
+    100% {
+        background-position: 0% 100%, 100% 100%, 200% 100%;
+    }
+}
+.circulo{
+    width:60px; 
+    height:60px; 
+    border-radius:50%;
+    border: 15px;
+    border-color: yellow;
+   }
