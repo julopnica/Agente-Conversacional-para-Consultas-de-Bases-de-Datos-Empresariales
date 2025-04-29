@@ -1,6 +1,6 @@
 # Agente-Conversacional-para-Consultas-de-Bases-de-Datos-Empresariales
 <p align="center">
-  <img src="[https://files.fm/f/wvk9jggyz9](https://files.fm/f/wvk9jggyz9)" alt="Pantalla Principal" width="400"/>
+  <img src="/public/img/Portada_Hackaton_2025.jpg" width="400"/>
   <br>agentes conversacional de inteligencia artificial que permite realizar consultas en lenguaje natural sobre múltiples bases de datos: SQL Server, MySQL y MongoDB usando Node.js 
 </p>
 
@@ -9,7 +9,7 @@
 Este agente conversacional de inteligencia artificial que permite realizar consultas en lenguaje natural sobre múltiples bases de datos empresariales (SQL Server, MySQL y MongoDB), y esta desarrollado en Node.js.
 ## 🚀 Flujo de Proeycto
 <p align="center">
-  <img src="Flujo_Proyecto.png" alt="Pantalla Principal" width="400"/>
+  <img src="/public/img/Flujo_Proyecto.png" alt="Pantalla Principal" width="400"/>
   <br>diagrama de flujo del proeyecto 
 </p>
 ## 🚀 Características Principales
@@ -85,7 +85,7 @@ Dependencias principales instaladas:
 
 | Pantalla Principal | Informe del Agente | Genera Graficos | Análisis de datos |
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
-| ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](informe.png) | ![Resultados Generados](grafico.png) | ![Reporte Exportado](analisis.png) |
+| ![Pantalla Principal](/public/img/Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](/public/img/informe.png) | ![Resultados Generados](/public/img/grafico.png) | ![Reporte Exportado](/public/img/analisis.png) |
 ## 🖼️ Video de Presenatcion
 [Video de Presentacion del Proyecto (si está disponible)](https://www.youtube.com/watch?v=Jy_EqMabO_A)
 
