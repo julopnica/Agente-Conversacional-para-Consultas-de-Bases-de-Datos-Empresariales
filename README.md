@@ -28,7 +28,7 @@ Pasos detallados para instalar las dependencias y configurar el entorno:
 1. Clonar el repositorio:
 
    ```bash
-   git clone[Agente-Conversacional-para-Consultas-de-Bases-de-Datos-Empresariales](https://github.com/julopnica/Agente-Conversacional-para-Consultas-de-Bases-de-Datos-Empresariales.git)
+   git clone https://github.com/julopnica/Agente-Conversacional-para-Consultas-de-Bases-de-Datos-Empresariales.git
    cd tu_repositorio
    ```
 
