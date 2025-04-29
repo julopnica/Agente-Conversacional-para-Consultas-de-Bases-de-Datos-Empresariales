@@ -87,8 +87,8 @@ Dependencias principales instaladas:
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
 | ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](informe.png) | ![Resultados Generados](grafico.png) | ![Reporte Exportado](analisis.png) |
 
-[Ver Video de Presentación en YouTube]([https://www.youtube.com/watch?v=ID_DE_TU_VIDEO_DE_YOUTUBE](https://youtu.be/Jy_EqMabO_A))
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/VIDEO_ID](https://youtu.be/Jy_EqMabO_A)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Ver Video de Presentación en YouTube]([https://www.youtube.com/watch?v=Jy_EqMabO_A](https://youtu.be/Jy_EqMabO_A))
+
 ## 📄 Instrucciones de Despliegue
 
 [Leer las Instrucciones de Despliegue Detalladas](instrucciones/despliegue.md)
