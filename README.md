@@ -87,8 +87,7 @@ Dependencias principales instaladas:
 |:------------------:|:-------------------------:|:--------------------:|:-----------------:|
 | ![Pantalla Principal](Pantalla_Principal.png) | ![Funcionalidad de Búsqueda](informe.png) | ![Resultados Generados](grafico.png) | ![Reporte Exportado](analisis.png) |
 
-[![Miniatura del video de presentación](http://img.youtube.com/vi/330318691/0.jpg)](https://youtu.be/Jy_EqMabO_A?feature=shared)
-
+[Video de Presentacion del Proyecto (si está disponible)](https://www.youtube.com/watch?v=Jy_EqMabO_A)
 
 
 ## 🎜️ Demo (Opcional)
