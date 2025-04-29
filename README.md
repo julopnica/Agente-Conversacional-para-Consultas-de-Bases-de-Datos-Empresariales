@@ -26,7 +26,9 @@ This conversational artificial intelligence agent allows you to perform natural 
   <img src="/public/img/kernel_semantic.png" alt="Pantalla Principal" width="400"/>
   <br>Semantic Kernel 
 </p>
-- directly applied the concept of an agent:
+
+directly applied the concept of an agent:
+
 - It takes natural language input
 - Interprets it and plans an action (SQL query)
 - Executes that action
