@@ -21,6 +21,19 @@ This conversational artificial intelligence agent allows you to perform natural 
 - Multimodal support: text, voice, graphics, and documents.
 - Compatibility with multiple LLMs: OpenAI and Gemini.
 
+## 🚀 Semantic Kernel
+<p align="center">
+  <img src="/public/img/kernel_semantic.png" alt="Pantalla Principal" width="400"/>
+  <br>Semantic Kernel 
+</p>
+- directly applied the concept of an agent:
+- It takes natural language input
+- Interprets it and plans an action (SQL query)
+- Executes that action
+- Presents the results in a useful form (graph, PDF, direct response)
+- It also stands out for its multimodal interaction: text, voice, graphical visualization, and documents.
+- This modular architecture allows the agent to make decisions, interact with data, and return insights without manual intervention.
+
 ## 🛠️ Install
 
 Detailed steps to install dependencies and configure the environment:
