@@ -73,12 +73,13 @@ Dependencias principales instaladas:
 3. Haga clic en la parte superior derecha de la pagina [Configuracion], seleciona el gestor de base de datos.
 4. Selecciona la base de datos de tu preferencias.
 5. Si escribe la consulta en lenguaje natual, haga clic en el icono de tuerca.
-5. si quiere dictar o hablar tu consulta, clic en el icono de microfono.
-6. Para generar el Grifico incluye la palabra (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?, grafico de barra"*).
-7. Para generar PDF incluye la palabra pdf (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?, pdf"*).
-8. El agente procesará la consulta, generará el gráfico y permitirá exportarlo en PDF.
-9. tambien puede canbiar de Modelo, al dar clic en menu superior [OpemAi],[Gemini].
-10. Repite los pasos desde el 3.
+6. si quiere dictar o hablar tu consulta, clic en el icono de microfono.
+7. Para generar PDF pronunciar la palabra pdf (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?  pdf"*).
+8. Para generar el Grifico pronunciar la palabra grafico de barra (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?  grafico de barra"*).
+9. Para generar PDF, escribe  (por ejemplo: *"¿Cuáles fueron los productos más vendidos este mes?, pdf"*).
+10. El agente procesará la consulta, generará el gráfico y permitirá exportarlo en PDF.
+11. tambien puede canbiar de Modelo, al dar clic en menu superior [OpemAi],[Gemini].
+12. Repite los pasos desde el 3.
 
 ## 🖼️ Imágenes de Ejemplo
 
